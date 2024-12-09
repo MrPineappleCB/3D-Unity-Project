@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallPlat : MonoBehaviour
 {
 	public float fallTime = 0.5f;
+	public float respawnTime = 15.0f;
 
 
 	void OnCollisionEnter(Collision collision)
