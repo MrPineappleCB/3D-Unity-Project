@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class FallPlat : MonoBehaviour
 {
 	public float fallTime = 0.5f;
-	public float respawnTime = 15.0f;
 
 
 	void OnCollisionEnter(Collision collision)
@@ -23,6 +23,11 @@ public class FallPlat : MonoBehaviour
 	IEnumerator Fall(float time)
 	{
 		yield return new WaitForSeconds(time);
-		Destroy(gameObject);
+		gameObject.SetActive(false);
+	}
+
+	public void ResetPlatform()
+	{
+		gameObject.SetActive(true);
 	}
 }
