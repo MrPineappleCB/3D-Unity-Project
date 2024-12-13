@@ -103,6 +103,11 @@ public class CharacterControls : MonoBehaviour {
 					fuel--;
 				}
 
+				if (Input.GetKeyDown("c"))
+				{
+					gravity = 100;
+				}
+
 			}
 			else
 			{
