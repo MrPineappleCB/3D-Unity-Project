@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Animations;
 
 [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof (CapsuleCollider))]
@@ -65,7 +66,14 @@ public class CharacterControls : MonoBehaviour {
 				Quaternion tr = Quaternion.LookRotation(targetDir); //Rotation of the character to where it moves
 				Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * rotateSpeed); //Rotate the character little by little
 				transform.rotation = targetRotation;
+
+				GetComponent<Animator>().SetBool("isWalking" , true);
 			}
+
+			else
+			{
+                GetComponent<Animator>().SetBool("isWalking", false);
+            }
 
 			if (jumpCount < maxJumpCount)
 			{
@@ -101,7 +109,14 @@ public class CharacterControls : MonoBehaviour {
 					rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 					jumpCount++;
 					fuel--;
-                    FindObjectOfType<Audio_Manager>().Play("explosion");
+                    //FindObjectOfType<Audio_Manager>().Play("explosion");
+					gameObject.GetComponent<AudioSource>().Play();
+                    GetComponent<Animator>().SetBool("isJumping", true);
+                }
+
+				else
+				{
+                    GetComponent<Animator>().SetBool("isJumping", false);
                 }
 
 				if (Input.GetKeyDown("c"))
