@@ -101,7 +101,8 @@ public class CharacterControls : MonoBehaviour {
 					rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 					jumpCount++;
 					fuel--;
-				}
+                    FindObjectOfType<Audio_Manager>().Play("explosion");
+                }
 
 				if (Input.GetKeyDown("c"))
 				{
