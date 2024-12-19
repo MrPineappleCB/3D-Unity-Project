@@ -65,6 +65,7 @@
     <Compile Include="Assets\ObstacleCoursePack\Scripts\WallMovable.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Controller\CameraManager.cs" />
     <Compile Include="Assets\EndZone.cs" />
+    <Compile Include="Assets\easter_egg.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Scripts\SavePos.cs" />
     <Compile Include="Assets\Audio_Manager.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Scripts\Pendulum.cs" />
